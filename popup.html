@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <title data-i18n-key="appName">Facebook Extended Control</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body data-theme="dark">
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <img src="icons/icon48.png" id="logo" class="header-logo">
+            <h1 class="header-title" data-i18n-key="appName">Facebook Extended</h1>
+            <button id="themeToggle" class="icon-button" data-i18n-key="themeToggleTitle"
+                title="Chuyển giao diện Sáng/Tối">
+                <svg class="theme-icon" viewBox="0 0 24 24">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-link active" data-tab="tab-main">
+                <svg style="fill: currentColor;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g>	<g>		<g>			<path d="M496.659,312.128l-47.061-36.8c0.619-5.675,1.109-12.309,1.109-19.328s-0.512-13.653-1.109-19.328l47.104-36.821				c8.747-6.912,11.157-19.179,5.568-29.397l-48.939-84.672c-5.355-9.749-17.365-14.208-28.309-10.176l-55.531,22.293				c-10.624-7.68-21.781-14.165-33.323-19.349l-8.448-58.901C326.334,8.448,316.606,0,305.107,0h-98.133				c-11.499,0-21.227,8.448-22.592,19.435l-8.469,59.115c-11.179,5.056-22.165,11.435-33.28,19.371l-55.68-22.357				c-10.645-4.16-22.763,0.235-28.096,10.005l-49.003,84.8c-5.781,9.771-3.413,22.443,5.547,29.525l47.061,36.779				c-0.747,7.211-1.109,13.461-1.109,19.328s0.363,12.117,1.067,19.328l-47.104,36.843C6.59,319.083,4.2,331.349,9.768,341.568				l48.939,84.672c5.312,9.728,17.301,14.165,28.309,10.176l55.531-22.293c10.624,7.659,21.803,14.144,33.344,19.349l8.448,58.88				c1.387,11.2,11.115,19.648,22.613,19.648h98.133c11.499,0,21.227-8.448,22.592-19.435l8.469-59.093				c11.179-5.056,22.165-11.435,33.28-19.371l55.68,22.357c10.603,4.117,22.763-0.235,28.096-10.005l49.195-85.099				C507.838,331.371,505.448,319.104,496.659,312.128z M483.752,330.901l-50.816,85.717l-61.077-24.533				c-3.456-1.387-7.381-0.853-10.368,1.365c-13.227,9.899-26.005,17.344-39.104,22.699c-3.499,1.429-5.995,4.608-6.528,8.363				l-10.773,66.155l-99.563-1.131l-9.323-65.003c-0.555-3.755-3.029-6.933-6.528-8.363c-13.632-5.589-26.752-13.205-39.019-22.635				c-1.899-1.472-4.203-2.219-6.507-2.219c-1.344,0-2.688,0.235-3.989,0.768l-62.827,23.701l-48.939-84.672				c-0.448-0.832-0.363-1.792,0.149-2.197l51.776-40.469c2.944-2.304,4.48-6.016,4.011-9.728c-1.131-8.939-1.643-16.171-1.643-22.72				s0.533-13.76,1.643-22.72c0.469-3.733-1.067-7.424-4.011-9.728L28.286,181.12l50.816-85.717l61.077,24.533				c3.477,1.408,7.381,0.875,10.389-1.365c13.205-9.92,26.005-17.344,39.104-22.699c3.499-1.451,5.973-4.629,6.507-8.363				l10.795-66.176l99.584,1.152l9.301,65.024c0.555,3.755,3.029,6.933,6.528,8.363c13.611,5.568,26.731,13.184,39.019,22.635				c3.008,2.304,6.955,2.859,10.475,1.429l62.827-23.701l48.939,84.672c0.448,0.832,0.363,1.771-0.149,2.176l-51.776,40.469				c-2.944,2.304-4.48,5.995-4.011,9.728c0.811,6.485,1.643,14.272,1.643,22.72c0,8.469-0.832,16.235-1.643,22.72				c-0.469,3.712,1.067,7.424,4.011,9.728l51.712,40.448C483.987,329.344,484.094,330.304,483.752,330.901z"/>			<path d="M256.019,149.333c-58.816,0-106.667,47.851-106.667,106.667s47.851,106.667,106.667,106.667				c58.816,0,106.667-47.851,106.667-106.667S314.835,149.333,256.019,149.333z M256.019,341.333				c-47.061,0-85.333-38.272-85.333-85.333s38.272-85.333,85.333-85.333c47.061,0,85.333,38.272,85.333,85.333				S303.08,341.333,256.019,341.333z"/>		</g>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                <span data-i18n-key="tab_main">Chính</span>
+            </button>
+            <button class="tab-link" data-tab="tab-filters">
+               <svg style="fill: currentColor;" id="Layer_1" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m16 133.612h260.513c7.186 29.034 33.45 50.627 64.673 50.627s57.487-21.593 64.673-50.627h90.141c8.836 0 16-7.164 16-16s-7.164-16-16-16h-90.142c-7.185-29.034-33.449-50.628-64.673-50.628s-57.488 21.594-64.673 50.628h-260.512c-8.836 0-16 7.164-16 16s7.164 16 16 16zm325.186-50.628c19.094 0 34.628 15.534 34.628 34.627 0 19.094-15.534 34.628-34.628 34.628s-34.628-15.534-34.628-34.628c0-19.093 15.534-34.627 34.628-34.627zm-325.186 189.016h90.142c7.186 29.034 33.449 50.627 64.673 50.627s57.487-21.593 64.673-50.627h260.512c8.836 0 16-7.164 16-16s-7.164-16-16-16h-260.513c-7.186-29.034-33.449-50.628-64.673-50.628s-57.487 21.594-64.673 50.628h-90.141c-8.836 0-16 7.164-16 16s7.163 16 16 16zm154.814-50.628c19.094 0 34.628 15.534 34.628 34.628 0 19.093-15.534 34.627-34.628 34.627s-34.628-15.534-34.628-34.627c0-19.094 15.534-34.628 34.628-34.628zm325.186 157.016h-90.142c-7.186-29.034-33.449-50.628-64.673-50.628s-57.487 21.594-64.673 50.628h-260.512c-8.836 0-16 7.164-16 16s7.164 16 16 16h260.513c7.186 29.034 33.449 50.628 64.673 50.628s57.487-21.594 64.673-50.628h90.141c8.836 0 16-7.164 16-16s-7.163-16-16-16zm-154.814 50.628c-19.094 0-34.628-15.534-34.628-34.628s15.534-34.628 34.628-34.628 34.628 15.534 34.628 34.628-15.534 34.628-34.628 34.628z"/></svg>
+                <span data-i18n-key="tab_filters">Bộ lọc</span>
+            </button>
+            <button class="tab-link" data-tab="tab-appearance">
+                <svg viewBox="0 0 24 24">
+                    <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                    <path d="M3 9h18"></path>
+                    <path d="M9 21V9"></path>
+                </svg>
+                <span data-i18n-key="tab_appearance">Giao diện</span>
+            </button>
+        </nav>
+
+        <!-- Tab Content -->
+        <main class="tab-content">
+            <!-- Main Tab -->
+            <div id="tab-main" class="tab-pane active">
+                <div class="card stats-card">
+                    <div class="stats-item">
+                        <span class="stats-label" data-i18n-key="stats_adsRemoved">Quảng cáo đã xóa</span>
+                        <span class="stats-value" id="removedAdCountDisplay">0</span>
+                    </div>
+                    <div class="stats-item">
+                        <span class="stats-label" data-i18n-key="stats_spamRemoved">Spam đã xóa</span>
+                        <span class="stats-value" id="removedSpamCountDisplay">0</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-header" data-i18n-key="main_blockContentHeader">Chặn nội dung</h3>
+                    <div class="option-row">
+                        <label class="option-label" for="adBlockToggle" data-i18n-key="main_blockAds">Chặn quảng
+                            cáo</label>
+                        <div class="select-container" style="position: absolute; right: 100px;">
+                            <select id="adActionSelect">
+                                <option value="remove" data-i18n-key="main_blockAds_action_remove">Xóa</option>
+                                <option value="hide" data-i18n-key="main_blockAds_action_hide">Ẩn</option>
+                            </select>
+                        </div>
+                        <label class="switch"><input type="checkbox" id="adBlockToggle"><span
+                                class="slider"></span></label>
+                    </div>
+                    <div class="option-row">
+                        <label class="option-label" for="reelsToggle" data-i18n-key="main_hideReels">Ẩn Reels & Video
+                            ngắn</label>
+                        <label class="switch"><input type="checkbox" id="reelsToggle"><span
+                                class="slider"></span></label>
+                    </div>
+                    <div class="option-row">
+                        <label class="option-label" for="suggestToggle" data-i18n-key="main_hideSuggestions"
+                            data-i18n-title-key="main_hideSuggestions_title"
+                            title="Ẩn gợi ý kết bạn, nhóm, trang,...">Ẩn mục Gợi ý</label>
+                        <label class="switch"><input type="checkbox" id="suggestToggle"><span
+                                class="slider"></span></label>
+                    </div>
+                    <div class="option-row">
+                        <label class="option-label" for="storyToggle" data-i18n-key="main_hideStories">Ẩn Tin
+                            (Stories)</label>
+                        <label class="switch"><input type="checkbox" id="storyToggle"><span
+                                class="slider"></span></label>
+                    </div>
+                    <div class="option-row">
+                        <label class="option-label" for="newFeedsToggle" data-i18n-key="main_hideNewsFeed"
+                            data-i18n-title-key="main_hideNewsFeed_title"
+                            title="Ẩn tất cả bài đăng trên Bảng tin (News Feed)">Ẩn toàn bộ Bảng tin</label>
+                        <label class="switch"><input type="checkbox" id="newFeedsToggle"><span
+                                class="slider"></span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters Tab -->
+            <div id="tab-filters" class="tab-pane">
+                <div class="card">
+                    <h3 class="card-header" data-i18n-key="filters_commentFilterHeader">Lọc bình luận</h3>
+                    <div class="option-row">
+                        <label class="option-label" for="commentFilterToggle"
+                            data-i18n-key="filters_commentFilterToggle">Lọc bình luận theo từ khóa</label>
+                        <label class="switch"><input type="checkbox" id="commentFilterToggle"><span
+                                class="slider"></span></label>
+                    </div>
+                    <div class="textarea-group">
+                        <label for="commentFilters" data-i18n-key="filters_commentKeywordsLabel">Từ khóa (phân cách bằng
+                            dấu phẩy)</label>
+                        <textarea id="commentFilters" data-i18n-placeholder-key="filters_commentKeywordsPlaceholder"
+                            placeholder="vd: vay tiền, ib zalo, .xyz, ..." rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-header" data-i18n-key="filters_phraseFilterHeader">Lọc nội dung theo cụm từ</h3>
+                    <div id="phraseFiltersContainer">
+                        <!-- Phrase filters will be dynamically inserted here -->
+                    </div>
+                    <div class="card-footer">
+                        <button id="savePhraseFilters" class="action-button" data-i18n-key="filters_saveButton">Lưu bộ
+                            lọc</button>
+                        <span id="saveStatus" class="save-status" data-i18n-key="filters_saveStatus"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appearance Tab -->
+            <div id="tab-appearance" class="tab-pane">
+                <div class="card">
+                    <h3 class="card-header" data-i18n-key="appearance_header">Tùy chỉnh giao di��n</h3>
+                    <div class="option-row">
+                        <label class="option-label" for="compactUISelect" data-i18n-key="appearance_hideSidebars">Ẩn
+                            thanh bên Facebook</label>
+                        <div class="select-container">
+                            <select id="compactUISelect">
+                                <option value="0" data-i18n-key="appearance_sidebar_none">Không ẩn</option>
+                                <option value="1" data-i18n-key="appearance_sidebar_left">Ẩn thanh bên trái</option>
+                                <option value="2" data-i18n-key="appearance_sidebar_right">Ẩn thanh bên phải</option>
+                                <option value="3" data-i18n-key="appearance_sidebar_both">Ẩn cả hai thanh</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="option-row">
+                        <label class="option-label" for="languageSelect" data-i18n-key="appearance_language">Ngôn
+                            ngữ</label>
+                        <div class="select-container">
+                            <select id="languageSelect">
+                                <option value="vi">Tiếng Việt</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>
+                <ul style="list-style: none; margin: 0; padding: 0; display: flex;      
+            justify-content: space-between; width: 100px;">
+                    <li><a href="https://www.facebook.com/Ki3tNgu/" target="_blank"><i
+                                class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/kiet.gicungbac/" target="_blank"><i
+                                class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://github.com/let-ai-cook" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </li>
+                </ul>
+            </span>
+            <a href="https://buymeacoffee.com/nobido408x" target="_blank" data-i18n-key="footer_donate">Ủng hộ tác
+                giả</a>
+        </footer>
+    </div>
+    <script type="module" src="popup.js"></script>
+</body>
+
+</html>
